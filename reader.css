@@ -1,0 +1,27 @@
+.div-centered{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    text-align: center;
+    line-height: 1.6;
+}
+.div-above-center {
+    margin-left: -70px;
+    font-style: normal;
+}
+.input {
+    position: fixed;
+    left: 5%;
+    font: 13px/17px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    width: 90%;
+    font-style: italic
+}
+.button *{
+    position: absolute;
+    word-spacing:30px;
+    font-size: 20px;
+    line-height:1.1;
+    margin-left: 0px;
+}
