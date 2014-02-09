@@ -3,29 +3,18 @@
     font-family: Riven;
     src: url(Riven.ttf);
 }
-.div_body{
+.div_body {
     position: absolute;
     top: 30%;
     width: 100%;
     text-align: center;
     line-height: 1.6;
-}
-
-.apear-animation{
     opacity: 0;
-    transition: 2s all;
-    -moz-transition:all linear 0.5s;
+    transition:all 2s;
 }
 
-.apear-animation.ng-hide-add.ng-hide-add-active {
+.div_body.appear{
     opacity: 1;
-    font-size: 12px;
-}
-
-.apear-animation.ng-hide-add,
-.apear-animation.ng-hide-remove.ng-hide-remove-active {
-    opacity:1;
-    font-size: 12px;
 }
 
 .div-above-center {
