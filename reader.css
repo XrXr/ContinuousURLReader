@@ -1,27 +1,54 @@
-.div-centered{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
+@font-face
+{
+    font-family: Riven;
+    src: url(Riven.ttf);
+}
+.div_body{
+    position: absolute;
+    top: 30%;
+    width: 100%;
     text-align: center;
     line-height: 1.6;
 }
+
+.apear-animation{
+    opacity: 0;
+    transition: 2s all;
+    -moz-transition:all linear 0.5s;
+}
+
+.apear-animation.ng-hide-add.ng-hide-add-active {
+    opacity: 1;
+    font-size: 12px;
+}
+
+.apear-animation.ng-hide-add,
+.apear-animation.ng-hide-remove.ng-hide-remove-active {
+    opacity:1;
+    font-size: 12px;
+}
+
 .div-above-center {
-    margin-left: -70px;
+    font-style: normal;
+}
+.intro_text{
+    position:relative;
+    font-family: Riven;
+    text-align: center;
     font-style: normal;
 }
 .input {
-    position: fixed;
+    vertical-align: middle;
+    position: relative;
     left: 5%;
     font: 13px/17px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
     width: 90%;
-    font-style: italic
+    font-style: italic;
 }
 .button *{
-    position: absolute;
+    position: relative;
     word-spacing:30px;
     font-size: 20px;
     line-height:1.1;
-    margin-left: 0px;
+    margin-left: 0;
 }

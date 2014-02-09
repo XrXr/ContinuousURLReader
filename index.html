@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lange="en" data-ng-app="">
+<html lange="en" data-ng-app="reader">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<!--     <meta http-equiv="refresh" content="2"> -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="reader.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular-animate.js"></script>
+    <script></script>
 </head>
 
-<body>
-    <div class="div-centered">
-
-        <div class="input">
-        <div class="div-above-center" align="center">
-            <p >{{foo}}&nbsp;</p>
+<body ng-controller="main-body">
+    <div ng-show="ani"> Why do we fade master Wane?</div>
+    <div class="div_body">
+        <div class="input" id="main_body">
+            <div class="intro_text">
+                <h1>Welcome to <em>Continuous Url Reader</em>!</h1>
+                <h3>This nifty tool allow you to easily view websites that have incrementing number in their url</h2>
+            </div>
+            <div class="div-above-center" align="center">
+                <p >{{url_in}}&nbsp;</p>
+            </div>
+            <p><input type="text" class="form-control" placeholder="Crawable URL" data-ng-model="url_in"></p>
+            <p class="button" align="center">
+                <button type="button" class="btn btn-success" onclick=(function(){ani=true;alert(ani)})>&nbsp;Start!&nbsp;</button>
+            </p>
         </div>
-        <p><input type="text" class="form-control" placeholder="Crawable URL" data-ng-model="foo"></p>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <div class="button">
-        <p><button type="button" class="btn btn-success">&nbsp;Start!&nbsp;</button></p>
-        </div>
-
     </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script>
+    var reader = angular.module('reader', ['ngAnimate']);
+    reader.controller('main-body', (function($scope) {
+        $scope.ani = false;
+    }));
+</script>
+
 </html>
