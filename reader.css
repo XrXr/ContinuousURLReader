@@ -9,26 +9,35 @@
     width: 100%;
     text-align: center;
     line-height: 1.6;
-    opacity: 0;
+    opacity: 1;
+}
+
+.appear_animation{
     -o-transition: all 2s;
     -moz-transition: all 2s;
     -webkit-transition: all 2s;
     transition:all 2s;
 }
 
-.div_body.appear{
+.appear_animation.ng-enter{
+    opacity: 0;
+}
+
+.appear_animation.ng-enter.ng-enter-active {
     opacity: 1;
 }
 
 .div-above-center {
     font-style: normal;
 }
+
 .intro_text{
     position:relative;
     font-family: Riven;
     text-align: center;
     font-style: normal;
 }
+
 .input {
     vertical-align: middle;
     position: relative;
