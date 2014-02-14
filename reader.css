@@ -48,8 +48,13 @@
 }
 .button *{
     position: relative;
-    word-spacing:30px;
     font-size: 20px;
     line-height:1.1;
     margin-left: 0;
+}
+.selector {
+	background-repeat: no-repeat;
+	background-position: left;
+	width: 46px;
+	height: 36px
 }
