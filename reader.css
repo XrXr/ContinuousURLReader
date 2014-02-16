@@ -3,6 +3,10 @@
     font-family: Riven;
     src: url(Riven.ttf);
 }
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer; }
+
 .div_body {
     position: absolute;
     top: 30%;
@@ -10,6 +14,18 @@
     text-align: center;
     line-height: 1.6;
     opacity: 1;
+}
+
+.selector{
+    color: black;
+    vertical-align: sub;
+    animation: color-change 5s infinite;
+}
+
+@keyframes color-change{
+    0%   {color: black;}
+    50%  {color: #66FF00;}
+    100% {color: black;}
 }
 
 .appear_animation{
@@ -51,10 +67,4 @@
     font-size: 20px;
     line-height:1.1;
     margin-left: 0;
-}
-.selector {
-	background-repeat: no-repeat;
-	background-position: left;
-	width: 46px;
-	height: 36px
 }
