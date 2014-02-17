@@ -5,7 +5,7 @@ reader.config(function($routeProvider, $locationProvider, $httpProvider) {
         templateUrl: 'partials/input.html',
         controller: input_pg_ctrl
     });
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });
 
 function input_pg_ctrl($scope, $log) {
