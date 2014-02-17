@@ -1,7 +1,7 @@
 @font-face
 {
     font-family: Riven;
-    src: url(Riven.ttf);
+    src: url(font/Riven.ttf);
 }
 
 .nav, .pagination, .carousel, .panel-title a {

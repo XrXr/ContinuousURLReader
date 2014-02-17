@@ -2,7 +2,7 @@ var reader = angular.module('reader', ['ngAnimate', 'ngRoute', 'ui.bootstrap']);
 reader.config(function($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = undefined;
     $routeProvider.when("/", {
-        templateUrl: 'input.html',
+        templateUrl: 'partials/input.html',
         controller: input_pg_ctrl
     });
     $locationProvider.html5Mode(true);
