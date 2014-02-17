@@ -56,7 +56,8 @@ function input_pg_ctrl($scope, $log) {
             }
             $scope.number_locations = number_locations.slice(0);
             if (number_locations.length !== 0) { //number(s) found
-                $scope.indicator_location = 0;
+                $scope.indicator_location = number_locations[$scope.indicator_location] ?
+                                            $scope.indicator_location : 0;
                 $scope.update_url();
                 button_success($scope);
             } else {
@@ -65,6 +66,7 @@ function input_pg_ctrl($scope, $log) {
                 button_failed($scope);
             }
         } else {
+            $scope.indicator_location = -1;
             $scope.update_url();
             button_failed($scope);
         }

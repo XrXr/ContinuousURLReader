@@ -18,14 +18,15 @@
 
 .selector{
     color: black;
-    vertical-align: sub;
+    font-style: italic;
     animation: color-change 5s infinite;
+    font-size: 19px;
 }
 
 @keyframes color-change{
-    0%   {color: black;}
+    0%   {color: red;}
     50%  {color: #66FF00;}
-    100% {color: black;}
+    100% {color: red;}
 }
 
 .appear_animation{
