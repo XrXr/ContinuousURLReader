@@ -19,7 +19,7 @@ function input_pg_ctrl($scope, $log) {
         $scope.url_end = end;
     };
 
-    $scope.update_url = function update_url() {
+    $scope.update_url = function() {
         var without_protocal = $scope.url_in.slice($scope.url_in.search("//") + 2);
         if ($scope.indicator_location == -1) {
             $scope.number_indicator = "";
@@ -38,9 +38,8 @@ function input_pg_ctrl($scope, $log) {
     };
 
     $scope.find_number = function() {
-        if ($scope.url_in) { //this will be empty if there isn't a protalcal
+        if ($scope.url_in) { //this will be empty if there isn't a protocol
             var without_protocal = $scope.url_in.slice($scope.url_in.search("//") + 2);
-            var number_location = without_protocal.search(/[0-9]+$/);
             var number_locations = [];
             var without_domain_length = without_protocal.search("/") + 1;
             var without_domain = "";
@@ -55,6 +54,7 @@ function input_pg_ctrl($scope, $log) {
                 without_domain = without_domain.replace(matched_number, s_repeat("_",matched_number.length));
             }
             $scope.number_locations = number_locations.slice(0);
+            $scope.protocal_length = $scope.url_in.length - without_protocal.length;
             if (number_locations.length !== 0) { //number(s) found
                 $scope.indicator_location = number_locations[$scope.indicator_location] ?
                                             $scope.indicator_location : 0;
@@ -90,6 +90,22 @@ function input_pg_ctrl($scope, $log) {
         }
     };
 
+    $scope.send_url = function (){
+        if($scope.number_locations.length !== 0){
+            var number_slice = $scope.number_locations[$scope.indicator_location].slice(0);
+            for (var c = 0; c<number_slice.length; c++){
+                number_slice[c] += $scope.protocal_length;
+            }
+
+            var event = document.createEvent('CustomEvent');
+            event.initCustomEvent("start_reading", true, true, {
+                url: $scope.url_in,
+                number_slice: number_slice
+             });
+            document.documentElement.dispatchEvent(event);
+        }
+    };
+
     function button_success($scope, head, mid, end) {
         $scope.button_status = "btn btn-success";
         $scope.button_text = "Start!";
@@ -104,7 +120,3 @@ function input_pg_ctrl($scope, $log) {
         return new Array(num+1).join(string);
     }
 }
-
-
-
-
