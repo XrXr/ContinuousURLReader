@@ -1,0 +1,47 @@
+{
+  "name": "continuousurlreader_addon",
+  "title": "Continuous URL Reader",
+  "id": "continuous-url-reader@xrxrxr.com",
+  "description": "Easily browse websites that have incrementing number in their URL",
+  "author": "XrXrXr",
+  "license": "MPL 2.0",
+  "version": "1.0",
+  "icon": "data/icon.png",
+  "icon64": "data/icon64.png",
+  "preferences": [
+    {
+      "name": "previous_page_hotkey",
+      "title": "",
+      "type": "string",
+      "value": "accel-alt-left",
+      "hidden": true
+    },
+    {
+      "name": "next_page_hotkey",
+      "title": "",
+      "type": "string",
+      "value": "accel-alt-right",
+      "hidden": true
+    },
+    {
+      "name": "previous_page_hotkey_raw",
+      "title": "",
+      "type": "string",
+      "value": "control alt||VK_LEFT",
+      "hidden": true
+    },
+    {
+      "name": "next_page_hotkey_raw",
+      "title": "",
+      "type": "string",
+      "value": "control alt||VK_RIGHT",
+      "hidden": true
+    },
+    {
+      "name": "hotkey_settings",
+      "title": "",
+      "type": "control",
+      "label": "Hotkey Settings"
+    }
+  ]
+}
