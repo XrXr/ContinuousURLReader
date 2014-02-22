@@ -1,13 +1,14 @@
 @font-face
 {
-    font-family: Riven;
+    font-family: Riven Regular;
     src: url(font/Riven.ttf);
 }
 
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer; }
 
-.div_body {
+.div-body {
+    font-family: Riven;
     position: absolute;
     top: 30%;
     width: 100%;
@@ -29,18 +30,68 @@
     100% {color: red;}
 }
 
-.appear_animation{
+.appear-animation{
     -o-transition: all 2s;
     -moz-transition: all 2s;
     -webkit-transition: all 2s;
     transition:all 2s;
 }
 
-.appear_animation.ng-enter{
+.appear-animation.ng-enter{
     opacity: 0;
 }
 
-.appear_animation.ng-enter.ng-enter-active {
+.text-change{
+    position: fixed;
+}
+
+.text-change.ng-enter, .animate-if.ng-leave {
+    transition:all 0.5s;
+}
+
+.text-change.ng-enter,
+.text-change.ng-leave.ng-leave-active {
+    opacity:0;
+}
+ 
+.text-change.ng-leave,
+.text-change.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
+.show-message.ng-hide-add, .show-message.ng-hide-remove{
+    transition:all linear 0.5s;
+    display:block!important; /*this is nessesary for the animation to work properly*/
+}
+
+.show-message.ng-hide-add.ng-hide-add-active,
+.show-message.ng-hide-remove {
+    opacity:0;
+}
+ 
+.show-message.ng-hide-add,
+.show-message.ng-hide-remove.ng-hide-remove-active {
+    opacity:1;
+}
+
+.setting-button{
+    position: fixed;
+    right: 1px;
+    opacity: 0.4;
+    animation: spin 1.3s;
+    transition: opacity 1s;
+}
+
+@keyframes spin{
+    0% {transform: rotate(-365deg);}
+    100% {}
+}
+
+.setting-button:hover{
+    opacity: 1
+}
+
+.appear-animation.ng-enter.ng-enter-active {
     opacity: 1;
 }
 
@@ -49,7 +100,7 @@
     max-width: 100%
 }
 
-.intro_text{
+.intro-text{
     position:relative;
     font-family: Riven;
     text-align: center;
@@ -64,9 +115,11 @@
     width: 90%;
     font-style: italic;
 }
+
 .button *{
     position: relative;
     font-size: 20px;
     line-height:1.1;
     margin-left: 0;
 }
+

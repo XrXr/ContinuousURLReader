@@ -1,8 +1,15 @@
-<div class="div_body">
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+   - Author: XrXrXr
+-->
+<!DOCTYPE html>
+<div tooltip="Settings" tooltip-placement="left" ng-click="hotkey_setting()" tooltip-append-to-body="true" class="setting-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACwklEQVRYhdVWz0tUURR+Fk4EaaAS1iYwoSiyJoQQLCSCeNS793zncBOx2giPqCgoImpRY7WQ/oWaoKgggmjjSmhTtGvRxlWoYS3aWFD0w9JaOMLrcu99M/6CLpzVfOd83/nxzpwo+h+fiHQAKAN4VbGy1nrnSvHXARgH8Mey8RVhB2Ac5POml404juNGZi4B+BkQ8A3A2TiO1ywZsTGmAOASgKkAsW3vAZxYEKFSqoGIepRS7cysALyugdi2pyLSmSRJC4AupVRDXratngHz2ScAX2rATyilNnkFAHiSE2CGiO6LyME0Teszwtczcy+AF1WIeOYk11rvzVPPzHvyWkhExyrDGIrV5cr+ps+BiN4x88Y88oyIntDXwsw3XE5HfWUXkc5qyTMJnQ8I6PU5PXY4PHBhtdbbiegMgJMi0mb/bowpMPOYI97tkOrTjvL32DhmPgXgVwb33ZUVEV1zCDgSEnDRAv8wxqzOYpRS7QCmHWX9miRJixWv2yHAv64rq/afyXdgjvt6KyKHLOxmR0X7QhUYtBwmHRgOfF7dWayItDkw/aEKXLHA0/YfSxzHjZjb9XbgUWNMwRJ7wFEBCQm44OjtYRtXWVpvM7g3IrLDUa1bNQkgomGHw7ALm6ZpvYhsU0q124MaRVFkjFkH4KOjUo985AO+3hJR7FXteQCGAvEGXAKuB4ZrylXiAHk/gNlAvEGX064cp88AOERcOV6uApgJxJkVkaJP+b2A47y9JKJUKbXVGNMEYIOIFInoMqq4JYjoYSiDJgCjVYhYqI0CaA72zxizlpn3E9EWIuoDMLEIwuda630AmkWkY0HHqjGmQETnMHd+VUXMzGNa66Rmshwhrcx8J2dQfwMYyj0+F/MqN4BPgH/PL9UrlUqrAHxwkE9GUVS37AKiKIpEpAjgLhGNENEIgDIR7V4R8qV+fwHLEWuXrdjLAQAAAABJRU5ErkJggg=="></div>
+<div class="div-body">
     <div class="input">
-        <div class="intro_text">
+        <div class="intro-text">
             <h1>Welcome to <em>Continuous Url Reader</em>!</h1>
-            <h3>Easily browse websites that have incrementing number in their url</h2>
+            <h3>Easily browse websites that have incrementing number in their url</h3>
         </div>
         <div class="div-above-center" align="center">
                 <p>
@@ -10,11 +17,17 @@
                 &nbsp;
                 </p>
         </div>
-        <p><input type="text" class="form-control" placeholder="Crawable URL" ng-model="url_in" ng-change="find_number();"></p>
+        <p><input type="url" class="form-control" placeholder="Crawable URL" ng-model="url_in" ng-change="find_number();"></p>
         <p class="button" align="center"><!-- Icons from FatiCons by Designerz Base. No lisence. -->
-        	<button type="button" tooltip="Move number selector left" tooltip-placement="left" ng-click="selector_left()" tooltip-append-to-body="true" class="btn btn-default"><img src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjE1IiBoZWlnaHQ9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoKIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBpZD0ic3ZnXzEiIGZpbGw9IiM1MTUxNTEiIGQ9Im0wLjY1MDIxOSwxMC4yNDQ3NWw5LjU4NiwtOS41ODVjMC44NzksLTAuODc4IDIuMzE2OTk5LC0wLjg3OCAzLjE5NSwwbDAuODAxMDAxLDAuOGMwLjg3Nzk5OCwwLjg3NyAwLjg3Nzk5OCwyLjMxNiAwLDMuMTk0bC03LjMxNTAwMSw3LjMxNWw3LjMxNTAwMSw3LjMxNTAwMWMwLjg3Nzk5OCwwLjg3OCAwLjg3Nzk5OCwyLjMxNjk5OSAwLDMuMTk0bC0wLjgwMTAwMSwwLjc5OTk5OWMtMC44NzgsMC44NzkgLTIuMzE2LDAuODc5IC0zLjE5NSwwbC05LjU4NiwtOS41ODdjLTAuNDcyLC0wLjQ2OTk5OSAtMC42ODEsLTEuMTAxOTk5IC0wLjY0NywtMS43MjJjLTAuMDM0LC0wLjYyIDAuMTc1LC0xLjI1MiAwLjY0NywtMS43MjR6Ii8+CiA8L2c+Cjwvc3ZnPg=='> </button>
-            <button type="button" tooltip="Enter a url that has a increasing number to start reading" tooltip-placement="bottom" tooltip-append-to-body="true" ng-class="button_status" id="startbtn" ng-init="done=true;" ng-click='send_url();'>&nbsp;{{button_text}}&nbsp;</button>
+        	<button type="button" tooltip="Move number selector left" tooltip-placement="left" ng-click="selector_left()" tooltip-append-to-body="true" class="btn btn-default"><img src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjE1IiBoZWlnaHQ9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoKIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBpZD0ic3ZnXzEiIGZpbGw9IiM1MTUxNTEiIGQ9Im0wLjY1MDIxOSwxMC4yNDQ3NWw5LjU4NiwtOS41ODVjMC44NzksLTAuODc4IDIuMzE2OTk5LC0wLjg3OCAzLjE5NSwwbDAuODAxMDAxLDAuOGMwLjg3Nzk5OCwwLjg3NyAwLjg3Nzk5OCwyLjMxNiAwLDMuMTk0bC03LjMxNTAwMSw3LjMxNWw3LjMxNTAwMSw3LjMxNTAwMWMwLjg3Nzk5OCwwLjg3OCAwLjg3Nzk5OCwyLjMxNjk5OSAwLDMuMTk0bC0wLjgwMTAwMSwwLjc5OTk5OWMtMC44NzgsMC44NzkgLTIuMzE2LDAuODc5IC0zLjE5NSwwbC05LjU4NiwtOS41ODdjLTAuNDcyLC0wLjQ2OTk5OSAtMC42ODEsLTEuMTAxOTk5IC0wLjY0NywtMS43MjJjLTAuMDM0LC0wLjYyIDAuMTc1LC0xLjI1MiAwLjY0NywtMS43MjR6Ii8+CiA8L2c+Cjwvc3ZnPg=='></button>
+            <button type="button" tooltip="Enter a URL that has an increasing number to start reading. The URL must include a protocol. (e.g. http://)" tooltip-placement="bottom" tooltip-append-to-body="true" ng-class="button_status" ng-click='send_url();'>
+                <span ng-if="url_valid" class="text-change">Start!</span>
+                <span ng-if="!url_valid" class="text-change">Please enter a valid URL</span>
+            </button>
             <button type="button" tooltip="Move number selector right" tooltip-placement="right" ng-click="selector_right()" tooltip-append-to-body="true" class="btn btn-default"><img src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjE1IiBoZWlnaHQ9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KCiA8Zz4KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+CiAgPHBhdGggaWQ9InN2Z18xIiBmaWxsPSIjNTE1MTUxIiBkPSJtMTQuMjk0OTA3LDEwLjI0NDc1MWwtOS41ODYsLTkuNTg2Yy0wLjg3OCwtMC44NzggLTIuMzE2OTk5LC0wLjg3OCAtMy4xOTUsMGwtMC44MDAwMDEsMC43OTk5OTljLTAuODc3OTk4LDAuODc3MDAxIC0wLjg3Nzk5OCwyLjMxNiAwLDMuMTk0bDcuMzE0MDAxLDcuMzE2bC03LjMxNTAwMSw3LjMxNTAwMWMtMC44Nzc5OTgsMC44NzggLTAuODc3OTk4LDIuMzE2OTk5IDAsMy4xOTRsMC43OTk5OTksMC43OTk5OTljMC44NzgwMDIsMC44NzkgMi4zMTcwMDEsMC44NzkgMy4xOTUwMDIsMGw5LjU4NiwtOS41ODdjMC40NzE5OTgsLTAuNDcxMDAxIDAuNjgxOTk5LC0xLjEwMzAwMSAwLjY0Njk5OSwtMS43MjNjMC4wMzU5OTksLTAuNjE4OTk5IC0wLjE3NCwtMS4yNTA5OTkgLTAuNjQ2LC0xLjcyM3oiLz4KICA8aW1hZ2UgeGxpbms6aHJlZj0iaW1hZ2VzL2xvZ28ucG5nIiBpZD0ic3ZnXzIiIGhlaWdodD0iNDgiIHdpZHRoPSI0OCIgeT0iMjcwLjkwMDAwMiIgeD0iNjMyIi8+CiA8L2c+Cjwvc3ZnPg=='></button>
         </p>
+        <div ng-show="url_valid" class="show-message">
+            Press settings to view/set nevigation hotkey
+        </div>
     </div>
 </div>

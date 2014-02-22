@@ -1,3 +1,8 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ * Author: XrXrXr
+ */
 var reader = angular.module('reader', ['ngAnimate', 'ngRoute', 'ui.bootstrap']);
 reader.config(function($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = undefined;
@@ -96,8 +101,7 @@ function input_pg_ctrl($scope, $log) {
             for (var c = 0; c<number_slice.length; c++){
                 number_slice[c] += $scope.protocal_length;
             }
-
-            var event = document.createEvent('CustomEvent');
+            var event = new CustomEvent('start');
             event.initCustomEvent("start_reading", true, true, {
                 url: $scope.url_in,
                 number_slice: number_slice
@@ -106,12 +110,20 @@ function input_pg_ctrl($scope, $log) {
         }
     };
 
+    $scope.hotkey_setting= function (){
+        var event = new CustomEvent('settings');
+        event.initCustomEvent("setting_dialog", true, true, {});
+        document.documentElement.dispatchEvent(event);
+    };
+
     function button_success($scope, head, mid, end) {
+        $scope.url_valid = true;
         $scope.button_status = "btn btn-success";
         $scope.button_text = "Start!";
     }
 
     function button_failed($scope, head, mid, end) {
+        $scope.url_valid = false;
         $scope.button_status = "btn btn-danger";
         $scope.button_text = "Please enter a valid URL";
     }
