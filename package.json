@@ -1,11 +1,11 @@
 {
-  "name": "continuousurlreader_addon",
-  "title": "Continuous URL Reader",
+  "name": "next-page-reader",
+  "title": "Next Page Reader",
   "id": "continuous-url-reader@xrxrxr.com",
   "description": "Easily browse websites that have incrementing number in their URL",
   "author": "XrXrXr",
   "license": "MPL 2.0",
-  "version": "1.0",
+  "version": "1.0.1",
   "icon": "data/icon.png",
   "icon64": "data/icon64.png",
   "preferences": [
