@@ -1,16 +1,34 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  * Author: XrXrXr
  */
-var reader = angular.module('reader', ['ngAnimate', 'ngRoute', 'ui.bootstrap']);
+const reader = angular.module('reader', ['ngAnimate', 'ngRoute', 'ui.bootstrap']);
 reader.config(function($routeProvider, $locationProvider, $httpProvider) {
-    $httpProvider.defaults.headers.common["X-Requested-With"] = undefined;
     $routeProvider.when("/", {
         templateUrl: 'partials/input.html',
         controller: input_pg_ctrl
     });
-    // $locationProvider.html5Mode(true);
+   /*
+    This Angular app does not, and should not send out any network
+    reqeusts. However, XHRs are sent out to fetch Angular templates on
+    disk. When responseType is the default (""), Firefox tries to parse the
+    response as XML. This of course failes as HTML is not valid XML, and
+    XML parsers are very strict. The parse failure manifests as error
+    messages in Firefox's console.
+    Turns out, these errors do not effect any funcionality of the app.
+    However since errors are scary, the following will set the responseType
+    as "text" for every XHR fired by the app, avoiding XML parsing and
+    error messages being logged.
+    */
+    $httpProvider.interceptors.push(function() {
+      return {
+       request: function(config) {
+            config.responseType = "text";
+            return config;
+        }
+      };
+    });
 });
 
 function input_pg_ctrl($scope, $log) {
